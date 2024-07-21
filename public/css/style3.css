@@ -1,0 +1,162 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0px;
+
+}
+
+
+/* navbar */
+
+.navbar{
+    height: 4rem;
+    background-color: white;
+}
+
+.fa-compass{
+    color:#fe424d;
+    font-size: 2rem;
+}
+
+
+.nav-link{
+    color: #222222 !important;
+}
+
+/* cards */
+
+.f-info{
+    height: 90px;
+    background-color: grey;
+    padding: 10px;
+
+}
+
+.f-info-links{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.f-main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.f-info-socials{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.f-info-socials i{
+    margin-left: 15px;
+    font-size: 1.5rem;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+    margin-left: 10px;
+}
+
+.f-info-links a:hover{
+    text-decoration:underline;
+}
+
+.card{
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.card-img-top{
+    width: 100% !important;
+    border-radius: 1rem !important;
+    height: 15rem !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+
+}
+
+.card-text p{
+    font-weight: 400 !important;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.1;
+    background-color: white;
+}
+
+.listing-btn{
+    display: flex;
+    
+}
+#btnd{
+    background-color: red;
+}
+
+#listing{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.innerlisting{
+    margin: 3px;
+}
+
+#map{
+    height: 40vh;
+    width: 100%;
+}
+
+@media(max-width:500px)
+{
+    .card{
+        width: 100%;
+    }
+    
+    #map{
+        width: 120%;
+    }
+}
+
+#privacydiv{
+    width: 70%;
+}
+
+#privacy-img{
+    height: 400px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+#termsdiv{
+    width: 70%;
+}
+

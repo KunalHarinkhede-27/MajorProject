@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top row-offset-2 padding-left-20">
+    <div class="container-fluid">
+        <style>
+            .container-fluid{
+                padding-left: 60px;
+                padding-right: 50px;
+            }
+            .navbar-nav-search{
+                margin: auto;
+            }
+            #search{
+                background-color: #fe424d;
+                border-radius: 25px;
+            }
+            #searchs{
+                border-radius: 25px;
+            }
+            .searchcontent{
+                width: 100%;
+                z-index: auto;
+                background-color: white;
+
+            }
+            .searchcontent ul{
+                border: 1px solid black;
+            }
+            @media(max-width:500px)
+            {
+                .container-fluid{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            }
+            
+
+        </style>
+        <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+        <button class="navbar-toggler" type="button" 
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link" href="/listings">Explore</a>
+        </div>
+
+        <div  class="navbar-nav-search">
+            <form class="d-flex" method="post" action="/listings/search">
+                <input class="form-control me-2" id="searchs" type="text" placeholder="Search" aria-label="Search" name="search" required>
+                <button class="btn btn-outline" id="search" type="search">Search</button>
+            </form>
+            <div class="searchcontent">
+
+            </div>
+        </div>
+        <script>
+const listing=require("../models/listing.js");
+const inputcontent=[
+    listing.title,
+];
+
+const inputbox=document.getElementById("searchs");
+const resultbox=document.querySelector(".searchcontent")
+
+inputbox.onkeyup=function(){
+    let result=[];
+    let input=inputbox.value;
+    if(input.length){
+        result=inputcontent.filter((keyword)=>{
+            return keyword.toLowerCase().includes(input.toLowerCase());
+        })
+        
+    }
+    display(result);
+
+}
+function display(result){
+    const content=result.map((list)=>{
+        return "<li>" + list + "</li>"
+    })
+    resultbox.innerHTML="<ul>" +content+ "</ul>"
+}
+        </script>
+
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="/listings/new">Add new listing</a>
+            <% if(!currUser){ %>
+            <a class="nav-link"  href="/signup">SignUp</a>
+            <a class="nav-link" href="/login">Log in</a>
+            <% } %>
+            <% if(currUser) {%>
+            <a class="nav-link" href="/logout">Log out</a>
+            <% } %>
+        </div>
+    </div>
+    </div>
+</nav>
+

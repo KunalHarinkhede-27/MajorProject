@@ -1,0 +1,210 @@
+<% layout("./layouts/boilerplate") %>
+
+    <style>
+        #Afilters{
+            order:initial;
+            margin:0px ;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            z-index: 1;
+            background-color: white;
+        }
+        #filters{
+            width: 70%;
+            display: flex;
+            flex-direction: row;
+            flex-flow: row;
+            overflow:auto;
+            
+            /* justify-content: space-evenly; */
+        }
+        .filter{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 5px;
+            opacity: 0.7;
+            z-index: 0;
+            padding: 10px;
+        }
+        .filter:hover{
+            opacity: 1;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        #toggles{
+            width: 25%;
+        }
+        .toggle{
+            width: auto;
+            border: 1px solid black;
+            padding: 5px;
+            height: 3rem;
+            margin: 15px;
+            margin-left: 5px;
+            margin-right: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            z-index: 1;
+        }
+        .gst{
+            display: none;
+        }
+        .para{
+            font-size: small;
+            padding: 5px;
+        }
+        i{
+            font-size: large;
+        }
+        #btns{
+            border: 1px solid black;
+            margin: 15px;
+            padding: 5px;
+            width: 80px;
+            height: 48px;
+            border-radius: 12px;
+            }
+        
+    </style>
+    
+    <div id="Afilters">
+        <div id="filters">
+            <div class="filter">
+                <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                <p class="para">Beachfront</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-regular fa-snowflake"></i></div>
+                <p class="para">arctic</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-chess-rook"></i></div>
+                <p class="para">Castle</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-water"></i></div>
+                <p class="para">Lakefront</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-landmark-dome"></i></div>
+                <p class="para">Historical</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-ship"></i></div>
+                <p class="para">Boat</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain"></i></div>
+                <p class="para">Mountain</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-tent"></i></div>
+                <p class="para">Tent</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-tree"></i></div>
+                <p class="para">Treehouse</p >
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-city"></i></div>
+                <p class="para">City</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-hotel"></i></div>
+                <p class="para">Hotels</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-tree"></i></div>
+                <p class="para">Treehouse</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-city"></i></div>
+                <p class="para">City</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-hotel"></i></div>
+                <p class="para">Hotels</p>
+            </div>
+        </div>
+        <div>
+            <!-- Button trigger modal -->
+<button type="button" id="btns" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Filter
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Filter</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h2>Type of place</h2>
+            <p>Search rooms, entire homes or any type of place</p>
+            <h3>Any type,  Room,   Entire home</h3>
+            <br>
+            <h2>Price Range</h2>
+            <p>min:8000Rs       max:100000Rs</p>
+            <h4>Host Language</h4>
+            <p>Hindi,    English,    Marathi</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Apply Filter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+        <div id="toggles">
+            <div class="toggle">
+                <div class="form-check-reverse form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">With taxes </label>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div id="listing">
+        <% for(let listing of alllistings){ %>
+            <div class="innerlisting">
+                <a href="/listings/<%= listing._id %>" class="listing-link">
+                    <div class="card" style="width: 17rem; border: none; ">
+                        <img src="<%= listing.image.url %>" class="card-img-top" alt="listing-image" >
+                        <div class="card-img-overlay"><%= listing.title %></div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b><%= listing.title %></b><br>
+                                &#8377;<%= listing.price.toLocaleString("en-IN") %>/night &nbsp;<span class="gst">+18%GST</span>
+                            </p>
+                        </div> 
+                    </div>
+                </a>
+            </div>
+            <% } %>
+    </div>
+
+    <!-- <a href="http://localhost:8080/listings/new">create new listing</a> -->
+
+    <script>
+        let gst=document.getElementsByClassName("gst");
+        let tax=document.getElementById("flexSwitchCheckDefault");
+        tax.addEventListener("click",()=>{
+            for(let gs of gst){
+            if(gs.style.display!="inline"){
+                gs.style.display="inline";
+            }
+            else{
+                gs.style.display="none";
+            }
+        }
+        })
+    </script>
