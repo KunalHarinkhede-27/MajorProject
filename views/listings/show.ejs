@@ -33,8 +33,9 @@
         <hr id="Hr" >
         <% if(currUser) {%>
         <div class="col-10 mb-2" >
-            <h4>Leave a review</h4>
-            <form method="post" action="/listings/<%= Listing._id %>/review" novalidate class="needs-validation" id="review">
+            <div id="review">
+                <h4>Leave a review</h4>
+            <form method="post" action="/listings/<%= Listing._id %>/review" novalidate class="needs-validation">
                 <fieldset class="starability-slot">
                     <p>Rating</p>
                     <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
@@ -57,6 +58,7 @@
                 <button type="submit" class="btn btn-outline-dark">submit</button>
             <hr>
             </form>
+        </div>
         </div>
         <% } %>
         <% if(Listing.reviews!=0) {%>
