@@ -134,6 +134,9 @@ body{
     height: 40vh;
     width: 100%;
 }
+#Hr{
+    width: 70%;
+}
 
 @media(max-width:500px)
 {
@@ -145,7 +148,7 @@ body{
         width: 120%;
     }
     #Hr{
-        width: 120%;
+        width: 100%;
     }
     #review{
         width: 120%;
