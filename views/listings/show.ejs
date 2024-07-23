@@ -30,9 +30,9 @@
         </div>
         <% } %>
         </div>
-        <hr class="col-10 mt-2">
+        <hr id="Hr" class="col-10 mt-2">
         <% if(currUser) {%>
-        <div class="col-10 mb-2">
+        <div class="col-10 mb-2" id="review">
             <h4>Leave a review</h4>
             <form method="post" action="/listings/<%= Listing._id %>/review" novalidate class="needs-validation">
                 <fieldset class="starability-slot">
@@ -61,9 +61,9 @@
         <% } %>
         <% if(Listing.reviews!=0) {%>
         <p><b>All reviews</b></p>
-        <div class="row">
+        <div class="row" id="allreviews">
             <% for(review of Listing.reviews) {%>
-                <div class="card col-8 m-2">
+                <div class="card col-5 m-2">
                     <div class="card-body">
                         <h5 class="card-title mt-2"><%= review.author.username %></h5>
                         <p class="starability-result" data-rating="<%= review.rating %>"></p>

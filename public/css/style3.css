@@ -144,6 +144,15 @@ body{
     #map{
         width: 120%;
     }
+    #Hr{
+        width: 100%;
+    }
+    #review{
+        width: 100%;
+    }
+    #allreviews{
+        width: 100%;
+    }
 }
 
 #privacydiv{
