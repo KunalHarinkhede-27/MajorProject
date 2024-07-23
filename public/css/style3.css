@@ -137,6 +137,12 @@ body{
 #Hr{
     width: 70%;
 }
+#review{
+    width: 70%;
+}
+#allreviews{
+    width: 70%;
+}
 
 @media(max-width:500px)
 {
