@@ -27,5 +27,11 @@ npm install
 and then install packages listed as a depencies in the package.json
 then
 node app.js
+
+* Screenshots
+  ![Screenshot 2025-01-31 164944](https://github.com/user-attachments/assets/56926bdc-be0a-4311-988e-73c260055b72)
+
+- This is a fully fiunctional website you can check whole working of website through above mentioned demo link of my deployed website.
+
 * Contact
 Feel free to reach out via Email: kunalharinkhede277@gmail.com
